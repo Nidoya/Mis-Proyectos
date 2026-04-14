@@ -41,7 +41,7 @@ public class Tareas{
 
                 case 2:
                     System.out.println("\n Tus tareas actuales");
-                    for (int i= 1; i < listaDeTareas.size(); i++) {
+                    for (int i= 0; i < listaDeTareas.size(); i++) {
                         Tarea tareaAcual = listaDeTareas.get(i);
 
                         String estado;
@@ -58,7 +58,7 @@ public class Tareas{
                     if (!listaDeTareas.isEmpty()){
                         System.out.println("\n¿Quieres marcar alguna tarea como echa y eliminarla? Si no marca -1");
                         int seleccionar = leer.nextInt();
-                        if (seleccionar >= 1 && seleccionar < listaDeTareas.size()){
+                        if (seleccionar >= 0 && seleccionar < listaDeTareas.size()){
                             System.out.println("Eliminando tarea: " + listaDeTareas.get(seleccionar).nombre);
                             listaDeTareas.remove(seleccionar);
                             System.out.println("Tarea eliminada");
