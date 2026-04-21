@@ -1,28 +1,28 @@
-// --- CLASE TAREA: El molde que define cómo es cada tarea ---
+// --- CLASE TAREA: Define la estructura de cada objeto tarea ---
 class Tarea {
-    // Ponemos 'private' para que los datos estén "bajo llave" y protegidos
+    // ATRIBUTOS PRIVADOS: Solo accesibles dentro de esta clase (Encapsulamiento)
     private String descripcion;
     private String fechaLimite;
     private int prioridad;
     private boolean terminado; 
 
-    // CONSTRUCTOR: Se activa cuando pones "new Tarea(...)". Rellena los datos al nacer.
+    // CONSTRUCTOR: Inicializa la tarea con los datos que nos da el usuario
     public Tarea(String descripcion, String fechaLimite, int prioridad) {
         this.descripcion = descripcion;
         this.fechaLimite = fechaLimite;
-        // Usamos el 'Setter' aquí para que ya desde el principio se compruebe el 1-5
+        // Usamos el Setter para validar la prioridad desde el primer segundo
         this.setPrioridad(prioridad);
-        this.terminado = false; 
+        this.terminado = false; // Por defecto, nace sin terminar
     }
 
-    // GETTERS: Son las "ventanillas" para LEER los datos privados
+    // GETTERS: Ventanillas de salida para poder leer los datos desde fuera
     public String getDescripcion(){ return descripcion; }
     public String getFechaLimite() { return fechaLimite; }
     public int getPrioridad() { return prioridad; }
 
-    // SETTER DE PRIORIDAD: La "ventanilla" para CAMBIAR el dato con seguridad
+    // SETTER DE PRIORIDAD: Filtro de seguridad para que el dato siempre sea correcto
     public void setPrioridad(int priorid) {
-        // REGLA: Si meten algo que no sea 1-5, le ponemos 1 por defecto
+        // Si el número es válido (1-5), se guarda. Si no, se fuerza a 1.
         if(priorid >= 1 && priorid <= 5){ 
             this.prioridad = priorid;
         } else { 
@@ -30,7 +30,7 @@ class Tarea {
         }
     }
 
-    // IS y SET para el estado TERMINADO (preguntar y mandar)
+    // MÉTODOS PARA EL ESTADO: 'is' para consultar y 'set' para cambiarlo
     public boolean isTerminado() { return terminado; }
     public void setTerminado(boolean terminad) { this.terminado = terminad; }
 }
